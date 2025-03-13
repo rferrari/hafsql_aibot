@@ -14,13 +14,6 @@ DISCORD_CONFIG = {
 }
 
 # Database Configuration
-# DB_CONFIG = {
-#     "server": os.environ.get("HIVESQL_SERVER"),
-#     "database": os.environ.get("HIVESQL_DATABASE"),
-#     "user": os.environ.get("HIVESQL_USER"),
-#     "password": os.environ.get("HIVESQL_PWD")
-# }
-
 DB_CONFIG = {
     "server": os.environ.get("HAFSQL_SERVER"),
     "database": os.environ.get("HAFSQL_DATABASE"),
