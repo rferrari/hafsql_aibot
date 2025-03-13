@@ -28,7 +28,7 @@ class Database:
     def _initialize_tables(self):
         """Initialize tables list and schema"""
         if (DEBUG_MODE):
-            print(f"connecting to {DB_CONFIG["server"]}...")
+            print(f"connecting to", DB_CONFIG["server"])
         with self.db.connect() as connection:
             if (DEBUG_MODE):
                 print(f"Done.")
