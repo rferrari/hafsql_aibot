@@ -1,0 +1,8 @@
+.env
+!.vscode/
+!.vscode/*
+venv
+__pycache__
+*.log
+*.txt
+!requirements.txt

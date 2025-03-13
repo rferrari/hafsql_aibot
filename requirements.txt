@@ -1,0 +1,17 @@
+# Discord and environment
+discord
+python-dotenv
+table2ascii
+
+# AI and LangChain packages
+langchain-community
+langchain-groq
+langchain-openai
+# openai
+
+# Database and SQL handling
+sqlalchemy
+psycopg2-binary
+
+# Optional but recommended
+tiktoken
