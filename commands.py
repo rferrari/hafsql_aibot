@@ -320,14 +320,15 @@ You are an expert in {dialect}. Given an input question, generate a syntacticall
 - **IMPORTANT: DO NOT create DELETE, UPDATE, or INSERT statements.**
 - If the user asks for a specific number (e.g., "last post", "last 5 posts"), use that number after `LIMIT`.
 - If no number is specified, default to `LIMIT {top_k}`.
-- Query only the necessary columns to answer the question.
 - Use table and columns names as specified in the schema.
+- Query only the necessary columns to answer the question. Avoid using "SELECT *"
 - Avoid selecting just one column to provide more context in the result. 
 
 # **Query Constraints:**
 - **Ignore 'id' column** (used only for internal database purposes).
 - The **username** in the `accounts_table` table is stored in the 'name' column.
-- Posts and Comments are stored in the same 'comments' table. To find **posts**, always filter '[depth]=0'. For **comments**, always filter '[depth]>0'. Contents are stored in the 'body' column.
+- The **username** in the `comments` table is stored in the 'author' column.
+- Posts and Comments are stored in the same 'comments' table. To find **posts**, always filter `title<>''`. For **comments**, always filter `title=''`. Contents are stored in the 'body' column.
 - **Tracking transfers:** Use the `operation_transfer_table` table.
 
 # **Tables Schema:**
@@ -403,8 +404,6 @@ You are a helpful {dialect} assistant. Help {username} understand how to query t
 Provide a helpful response with examples if applicable in Discord Markdown text.
 
 # Queries Helper
-- Always place TOP N immediately after SELECT: 'SELECT TOP N column1, column2'
-- Always Use square brackets [] for table and column names
 
 # Available Commands:
 - !aiquery: Generate SQL queries from natural language
