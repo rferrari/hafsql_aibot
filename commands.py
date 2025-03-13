@@ -322,12 +322,12 @@ You are an expert in {dialect}. Given an input question, generate a syntacticall
 - If no number is specified, default to `LIMIT {top_k}`.
 - Query only the necessary columns to answer the question.
 - Use table and columns names as specified in the schema.
+- Avoid selecting just one column to provide more context in the result. 
 
 # **Query Constraints:**
 - **Ignore 'id' column** (used only for internal database purposes).
 - The **username** in the `accounts_table` table is stored in the 'name' column.
-- **Finding posts:** Use the `comments_table` table where `title <> ''`.
-- **Finding comments:** Use the `comments_table` table where `title = ''`.
+- Posts and Comments are stored in the same 'comments' table. To find **posts**, always filter '[depth]=0'. For **comments**, always filter '[depth]>0'. Contents are stored in the 'body' column.
 - **Tracking transfers:** Use the `operation_transfer_table` table.
 
 # **Tables Schema:**
